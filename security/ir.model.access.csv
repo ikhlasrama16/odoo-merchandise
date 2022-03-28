@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_merch_order,access.merch.order,model_merch_order,,1,1,1,1
+access_merch_kaos,access.merch.kaos,model_merch_kaos,,1,1,1,1
+access_merch_jaket,access.merch.jaket,model_merch_jaket,,1,1,1,1
+access_merch_accessories,access.merch.accessories,model_merch_accessories,,1,1,1,1
+access_merch_orderkaosdetail,access.merch.orderkaosdetail,model_merch_orderkaosdetail,,1,1,1,1
+access_merch_orderjaketdetail,access.merch.orderjaketdetail,model_merch_orderjaketdetail,,1,1,1,1
+access_merch_orderaccessoriesdetail,access.merch.orderaccessoriesdetail,model_merch_orderaccessoriesdetail,,1,1,1,1
+access_merch_pembayaran,access.merch.pembayaran,model_merch_pembayaran,,1,1,1,1

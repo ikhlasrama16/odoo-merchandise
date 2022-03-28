@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- merch.accessories tree view -->
+    <record id="merch_accessories_view_tree" model="ir.ui.view">
+        <field name="name">merch.accessories.view.tree</field>
+        <field name="model">merch.accessories</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="deskripsi"/>
+                <field name="harga"/>
+                
+            </tree>
+        </field>
+    </record>
+    <!-- merch.accessories form view -->
+    <record id="merch_accessories_view_form" model="ir.ui.view">
+        <field name="name">merch.accessories.view.form</field>
+        <field name="model">merch.accessories</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group string='Input Accessories'>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="deskripsi"/>
+                        <field name="harga"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- merch.accessories action window -->
+    <record id="merch_accessories_action" model="ir.actions.act_window">
+        <field name="name">List Accessories</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">merch.accessories</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="merch_accessories_menu_act" 
+        name="Accessories" 
+        parent="merch_katalog_menu_categ" 
+        action="merch_accessories_action" 
+        sequence="30"/>
+</odoo>

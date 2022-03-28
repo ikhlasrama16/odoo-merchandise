@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- merch.order form view -->
+    <record id="merch_order_view_form" model="ir.ui.view">
+        <field name="name">Merch Order</field>
+        <field name="model">merch.order</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="tanggal_pesan"/> 
+                        <field name="total"/>
+                        <field name="orderkaosdetail_ids">
+                            <tree editable='bottom'>
+                                <field name="kaos_id"/>  
+                                <field name="harga_satuan"/> 
+                                <field name="qty"/> 
+                                <field name="harga" sum="Total"/>                                        
+                            </tree>
+                        </field>
+                        <field name="orderjaketdetail_ids">
+                            <tree editable='bottom'>
+                                <field name="jaket_id"/>  
+                                <field name="harga_satuan"/> 
+                                <field name="qty"/> 
+                                <field name="harga" sum="Total"/>                                        
+                            </tree>
+                        </field>
+                        <field name="orderaccessoriesdetail_ids">
+                            <tree editable='bottom'>
+                                <field name="accessories_id"/>  
+                                <field name="harga_satuan"/> 
+                                <field name="qty"/> 
+                                <field name="harga" sum="Total"/>                                
+                            </tree>
+                        </field>
+                        <field name="sudah_dibayar"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- merch.order tree view -->
+    <record id="merch_order_view_tree" model="ir.ui.view">
+        <field name="name">Order</field>
+        <field name="model">merch.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="tanggal_pesan"/>
+                <field name="total"/>
+                <field name="orderkaosdetail_ids"/>
+                <field name="orderjaketdetail_ids"/>
+                <field name="orderaccessoriesdetail_ids"/>
+                <field name="sudah_dibayar"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- merch.order action window -->
+    <record id="merch_order_action" model="ir.actions.act_window">
+        <field name="name">Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">merch.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="merch_order_menu_act" 
+        name="Order" 
+        parent="merch_order_menu_categ" 
+        action="merch_order_action" 
+        sequence="10"/>
+</odoo>

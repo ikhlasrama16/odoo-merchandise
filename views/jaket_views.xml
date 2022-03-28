@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- merch.jaket tree view -->
+    <record id="merch_jaket_view_tree" model="ir.ui.view">
+        <field name="name">merch.jaket.view.tree</field>
+        <field name="model">merch.jaket</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="deskripsi"/>
+                <field name="size"/>
+                <field name="bahan"/>
+                <field name="harga"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- merch.jaket form view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">merch.jaket.view.form</field>
+        <field name="model">merch.jaket</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group string='Input Jaket'>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="deskripsi"/>
+                        <field name="size"/>
+                        <field name="bahan"/>
+                        <field name="harga"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- merch.jaket action window -->
+    <record id="merch_jaket_action" model="ir.actions.act_window">
+        <field name="name">List Jaket</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">merch.jaket</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="merch_jaket_menu_act" 
+        name="Jaket" 
+        parent="merch_katalog_menu_categ" 
+        action="merch_jaket_action" 
+        sequence="20"/>
+</odoo>
