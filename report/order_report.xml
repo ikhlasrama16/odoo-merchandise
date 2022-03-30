@@ -6,28 +6,56 @@
             <t t-call="web.external_layout">
                 <div class="page">
                     <h1>Faktur Order</h1>
-                    <h2>
+                    <div class="row">
+                        <div class="col-4">Kode Order :</div>
+                        <div class="col-4"><span t-field="o.name"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Tanggal Pemesanan :</div>
+                        <div class="col-4"><span t-field="o.tanggal_pesan"/></div>
+                    </div>
                         <div class="row">
-                            <div class="col-4">Kode Order :</div>
-                            <div class="col-8"><span t-field="o.name"/></div>
-                        </div>
-                    </h2>
-                    <h3>
-                        <div class="row">
-                            <table class="table-bordered">
+                            <table style="width: 100%; border: 2px solid;">
                                 <tr>
-                                    <th>Quantity</th>
-                                    <th>Jenis Kaos</th>
+                                    <th style="height: 30px;">Quantity</th>
+                                    <th style="height: 30px;">Tipe Barang</th>
+                                    <th style="height: 30px;">Deskripsi</th>
+                                    <th style="height: 30px;">Harga</th>
                                 </tr>
                                 <t t-foreach="o.orderkaosdetail_ids" t-as="k">
                                     <tr>
-                                        <td><span t-esc="k.kaos_id.name"/></td>
                                         <td><span t-esc="k.qty"/></td>
+                                        <td><span t-esc="k.kaos_id.name"/></td>
+                                        <td><span t-esc="k.kaos_id.deskripsi"/></td>
+                                        <td><span t-esc="k.harga"/></td>
+                                    </tr>
+                                </t>
+                                <t t-foreach="o.orderjaketdetail_ids" t-as="k">
+                                    <tr>
+                                        <td><span t-esc="k.qty"/></td>
+                                        <td><span t-esc="k.jaket_id.name"/></td>
+                                        <td><span t-esc="k.jaket_id.deskripsi"/></td>
+                                        <td><span t-esc="k.harga"/></td>
+                                    </tr>
+                                </t>
+                                <t t-foreach="o.orderaccessoriesdetail_ids" t-as="k">
+                                    <tr>
+                                        <td><span t-esc="k.qty"/></td>
+                                        <td><span t-esc="k.accessories_id.name"/></td>
+                                        <td><span t-esc="k.accessories_id.deskripsi"/></td>
+                                        <td><span t-esc="k.harga"/></td>
                                     </tr>
                                 </t>
                             </table>
+                            <div class="row">
+                                <div class="col-4">Total</div>
+                                <div class="col-4"><span t-field="o.total"/></div>
+                            </div>
                         </div>
-                    </h3>
+                    <div class="row">
+                        <div class="col-4">Total</div>
+                        <div style="right: 0px;"><span t-field="o.total"/></div>
+                    </div>
                 </div>
             </t>
         </t>
